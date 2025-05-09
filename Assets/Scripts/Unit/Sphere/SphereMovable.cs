@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class CubeMovement : IMovement
+public class SphereMovable : IMovable
 {
     private GameObject gameObject;
     private Vector3 movementDirection;
     public float MovementSpeed { get; }
 
-    public CubeMovement(GameObject gameObject, float movementSpeed, Vector3 movementDirection)
+    public SphereMovable(GameObject gameObject, float movementSpeed, Vector3 movementDirection)
     {
         this.gameObject = gameObject;
         MovementSpeed = movementSpeed;

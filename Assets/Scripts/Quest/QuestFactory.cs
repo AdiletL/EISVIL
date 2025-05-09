@@ -1,26 +1,24 @@
 using System;
 
-public class QuestFactory
+namespace Quest
 {
-    public IQuest CreateQuest(IQuestConfig config, IQuestView view)
+    public class QuestFactory
     {
-        IQuest result = config switch
+        public IQuestController CreateQuest(IQuestConfig config, IQuestView view)
         {
-            _ when config.GetType() == typeof(TimeInGameQuestConfig) => CreateTimeInGameQuest(config, view),
-            _ when config.GetType() == typeof(UnitKillQuestConfig) => CreateUnitKillQuest(config, view),
-            _ => throw new ArgumentException($"Unknown quest config: {config}")
-        };
-        
-        return result;
-    }
-
-    private TimeInGameQuest CreateTimeInGameQuest(IQuestConfig config, IQuestView view)
-    {
-        return new TimeInGameQuest(config, view);
-    }
-
-    private UnitKillQuest CreateUnitKillQuest(IQuestConfig config, IQuestView view)
-    {
-        return new UnitKillQuest(config, view);
+            switch(config)
+            {
+                case TimeInGameQuestConfig timeConfig:
+                    var timeModel = new TimeInGameModel(timeConfig);
+                    return new TimeInGameController(timeModel, view);
+                
+                case UnitKillQuestConfig killConfig:
+                    var killModel = new UnitKillModel(killConfig);
+                    return new UnitKillController(killModel, view);
+                
+                default:
+                    throw new ArgumentException($"Unknown config type: {config.GetType()}");
+            }
+        }
     }
 }

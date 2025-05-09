@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 186455528641214021}
   - component: {fileID: 5285604402475556819}
   m_Layer: 5
-  m_Name: QuestCanvas
+  m_Name: QuestViewContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

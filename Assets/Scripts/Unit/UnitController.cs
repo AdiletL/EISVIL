@@ -1,9 +1,18 @@
 using System;
 using UnityEngine;
 
-public abstract class UnitController : MonoBehaviour, IUnitController
+[Flags]
+public enum UnitType
 {
-    public static Action<IUnitController> OnDeath;
+    Nothing = 0,
+    Everything = ~0,
+    Sphere = 1 << 1,
+    Cube = 1 << 2,
+}
+
+public abstract class UnitController : MonoBehaviour, IKillable
+{
+    public static Action<UnitController> OnDeath;
     public abstract UnitType UnitTypeID { get; }
 
     public virtual void Start()

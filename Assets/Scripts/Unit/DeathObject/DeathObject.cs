@@ -5,9 +5,9 @@ public class DeathObject : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IDeathatable deathatable))
+        if (other.TryGetComponent(out IKillable killable))
         {
-            deathatable.ExecuteDeath();
+            killable.ExecuteDeath();
         }
     }
 }

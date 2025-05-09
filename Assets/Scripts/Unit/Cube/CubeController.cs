@@ -5,16 +5,16 @@ public class CubeController : UnitController
 {
     public override UnitType UnitTypeID { get; } = UnitType.Cube;
 
-    private IMovement movement;
+    private IMovable movable;
     
     public override void Start()
     {
         base.Start();
-        movement = new CubeMovement(gameObject, 4, transform.forward);
+        movable = new CubeMovable(gameObject, 4, transform.forward);
     }
 
     private void Update()
     {
-        movement.ExecuteMovement();
+        movable.ExecuteMovement();
     }
 }

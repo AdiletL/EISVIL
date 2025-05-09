@@ -1,9 +1,7 @@
 using System;
 
-public interface IQuest
+public interface IQuestController
 {
-    public event Action<IQuest> OnCompleted;
-
     public void Start();
     public void Stop();
     public void Complete();

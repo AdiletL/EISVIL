@@ -1,4 +1,4 @@
-public interface IDeathatable
+public interface IKillable
 {
     public void ExecuteDeath();
 }

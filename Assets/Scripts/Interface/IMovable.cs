@@ -1,4 +1,4 @@
-public interface IMovement
+public interface IMovable
 {
     public float MovementSpeed { get; }
     

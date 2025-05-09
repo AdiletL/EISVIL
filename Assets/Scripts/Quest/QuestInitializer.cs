@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
+using Quest;
 using UnityEngine;
 
-public class QuestManager : MonoBehaviour
+public class QuestInitializer : MonoBehaviour
 {
     [SerializeField] private QuestConfigContainer questConfigContainer;
     [SerializeField] private QuestViewContainer questViewContainerPrefab;
 
     private QuestFactory questFactory;
-    private List<IQuest> quests;
-    
+    private List<IQuestController> quests;
+
     private void Start()
     {
         questFactory = new QuestFactory();
-        quests = new List<IQuest>();
-        
+        quests = new List<IQuestController>();
+    
         questViewContainerPrefab = Instantiate(questViewContainerPrefab);
         foreach (var questConfig in questConfigContainer.QuestConfigs)
         {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TimeInGameQuestConfig", menuName = "SO/Quest/Time In Game", order = 51)]
